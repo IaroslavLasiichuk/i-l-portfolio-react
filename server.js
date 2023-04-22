@@ -34,6 +34,8 @@ const sess = {
 
 // Sets up the session.
 app.use(session(sess));
+// Have Node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // Use express static json and urlencoded.
 app.use(express.json());
