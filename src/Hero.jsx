@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import React from "react";
 
 const navigation = [
   { name: 'About', href: '#' },
@@ -8,11 +9,23 @@ const navigation = [
   { name: 'Contact', href: '#' },
 ]
 
-export default function Example() {
+export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [data, setData] = React.useState(null);
 
+  React.useEffect(() => {
+    fetch("http://localhost:3000/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
   return (
     <div className="bg-white">
+      <div className="App">
+      <header className="App-header">
+     
+        <p>{!data ? "Loading..." : data}</p>
+      </header>
+    </div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">

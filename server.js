@@ -2,6 +2,7 @@
 import path from 'path';
 import express from 'express';
 import session from 'express-session';
+import cors from 'cors';
 // import routes from './server/controllers';
 
 // Const sequelize store.
@@ -12,6 +13,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 // Gets the express app and port.
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 // Import sequelize connection
