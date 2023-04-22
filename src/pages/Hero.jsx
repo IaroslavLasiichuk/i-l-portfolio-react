@@ -2,12 +2,9 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
+import data from '/src/data/data.js';
 
-const navigation = [
-  { name: 'About', href: '#' },
-  { name: 'Projects', href: '#' },
-  { name: 'Contact', href: '#' },
-]
+const { navigation } = data;
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -19,21 +16,23 @@ export default function Hero() {
       .then((data) => setData(data.message));
   }, []);
   return (
+    // Test for fetching
     <div className="bg-white">
       <div className="App">
       <header className="App-header">
-     
-        <p>{!data ? "Loading..." : data}</p>
+        {/* <p>{!data ? "Loading..." : data}</p> */}
       </header>
-    </div>
+      </div>
+      
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
+             
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="../../public/vite.svg"
                 alt=""
               />
             </a>
@@ -59,9 +58,9 @@ export default function Hero() {
             <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
               Log out <span aria-hidden="true">&larr;</span>
-            </a>
+            </a> */}
           </div>
         </nav>
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -105,6 +104,9 @@ export default function Hero() {
                   >
                     Log in
                   </a>
+                   {/* <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+              Log out <span aria-hidden="true">&larr;</span>
+            </a> */}
                 </div>
               </div>
             </div>
@@ -125,15 +127,9 @@ export default function Hero() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-6 sm:py-1 lg:pt-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              Announcing our next round of funding.{' '}
-              <a href="#" className="font-semibold text-indigo-600">
-                <span className="absolute inset-0" aria-hidden="true" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
+            
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
@@ -143,7 +139,14 @@ export default function Hero() {
                 className="h-8 w-auto"
                 src="./assets/logo_for?project_2.jpeg"
                 alt=""
-              />
+            />
+            <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+             More about me.{' '}
+              <a href="#" className="font-semibold text-indigo-600">
+                <span className="absolute inset-0" aria-hidden="true" />
+                Read more <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
             <p className="mt-6 text-lg leading-8 text-gray-600">
             Hi! My name is Iaroslav Lasiichuk. I am a hard working, punctual and honest individual. I am a good timekeeper, always willing to learn new skills. I am friendly, helpful and polite, and have a good sense of humor. I am able to work independently in busy
                 environments and also within a team setting. I am outgoing and tactful, and able to listen effectively when solving problems.
