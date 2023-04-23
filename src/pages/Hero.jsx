@@ -70,7 +70,7 @@ export default function Hero() {
                 <span className="sr-only">Your Company</span>
                 <img
                   className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  src={logo}
                   alt=""
                 />
               </a>
@@ -131,7 +131,7 @@ export default function Hero() {
             
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
             Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
             </h1>
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
@@ -153,7 +153,7 @@ export default function Hero() {
                 Contact Me
               </a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                Learn more <span aria-hidden="true">→</span>
+               Jump to my GitHub<span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
