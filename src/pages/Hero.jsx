@@ -3,6 +3,7 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
 import data from '/src/data/data.js';
+import logo from '../../public/vite.svg';
 
 const { navigation } = data;
 
@@ -23,16 +24,14 @@ export default function Hero() {
         {/* <p>{!data ? "Loading..." : data}</p> */}
       </header>
       </div>
-      
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-             
                 className="h-8 w-auto"
-                src="../../public/vite.svg"
+                src={logo}
                 alt=""
               />
             </a>
@@ -127,7 +126,7 @@ export default function Hero() {
             }}
           />
         </div>
-        <div className="mx-auto max-w-2xl py-6 sm:py-1 lg:pt-56">
+        <div className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             
           </div>
@@ -135,11 +134,6 @@ export default function Hero() {
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
             </h1>
-            <img
-                className="h-8 w-auto"
-                src="./assets/logo_for?project_2.jpeg"
-                alt=""
-            />
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
              More about me.{' '}
               <a href="#" className="font-semibold text-indigo-600">
