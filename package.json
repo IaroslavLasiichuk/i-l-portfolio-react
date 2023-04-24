@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "vite",
     "seed": "node server/seeds/seed.js",
@@ -14,7 +15,6 @@
   "engines": {
     "node": "v16.19.1"
   },
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.17",

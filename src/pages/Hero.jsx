@@ -5,24 +5,23 @@ import React from "react";
 import data from '/src/data/data.js';
 import logo from '../../public/vite.svg';
 
+
 const { navigation } = data;
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [data, setData] = React.useState(null);
-
+ 
   React.useEffect(() => {
-    fetch("http://localhost:3000/api")
+    fetch("http://localhost:3000/person")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => {
+        setData(data.person);
+      });
   }, []);
   return (
-    // Test for fetching
     <div className="bg-white">
       <div className="App">
-      <header className="App-header">
-        {/* <p>{!data ? "Loading..." : data}</p> */}
-      </header>
       </div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -128,11 +127,11 @@ export default function Hero() {
         </div>
         <div className="mx-auto max-w-2xl py-16 sm:py-16 lg:pt-28">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            
           </div>
           <div className="text-center">
+          <div>
             <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
+            Hi, My name is {data[0].first_name} {data[0].last_name} I'm Frontend Developer
             </h1>
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
              More about me.{' '}
@@ -142,9 +141,9 @@ export default function Hero() {
               </a>
             </div>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            Hi! My name is Iaroslav Lasiichuk. I am a hard working, punctual and honest individual. I am a good timekeeper, always willing to learn new skills. I am friendly, helpful and polite, and have a good sense of humor. I am able to work independently in busy
-                environments and also within a team setting. I am outgoing and tactful, and able to listen effectively when solving problems.
-            </p>
+            {data[0].text}
+              </p>
+              </div>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
