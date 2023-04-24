@@ -4,8 +4,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import React from "react";
 import data from '/src/data/data.js';
 import logo from '../../public/vite.svg';
-
-
 const { navigation } = data;
 
 export default function Hero() {
@@ -25,7 +23,6 @@ export default function Hero() {
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
             <a href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
                 src={logo}
@@ -143,14 +140,11 @@ export default function Hero() {
             <p className="mt-6 text-lg leading-8 text-gray-600">
             {person[0].text}
               </p>
-            
           </>
         ) : (
           <p></p>
         )}
       </div>
-            
-             
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
