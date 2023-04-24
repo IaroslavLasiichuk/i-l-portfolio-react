@@ -10,19 +10,17 @@ const { navigation } = data;
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [data, setData] = React.useState(null);
+  const [person, setPerson] = React.useState(null);
  
   React.useEffect(() => {
     fetch("http://localhost:3000/person")
       .then((res) => res.json())
       .then((data) => {
-        setData(data.person);
+        setPerson(data.person);
       });
   }, []);
   return (
     <div className="bg-white">
-      <div className="App">
-      </div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -130,8 +128,10 @@ export default function Hero() {
           </div>
           <div className="text-center">
           <div>
-            <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Hi, My name is {data[0].first_name} {data[0].last_name} I'm Frontend Developer
+        {person ? (
+                <>
+                  <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Hi, My name is {person[0].first_name} {person[0].last_name} I'm Frontend Developer
             </h1>
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
              More about me.{' '}
@@ -141,9 +141,16 @@ export default function Hero() {
               </a>
             </div>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            {data[0].text}
+            {person[0].text}
               </p>
-              </div>
+            
+          </>
+        ) : (
+          <p></p>
+        )}
+      </div>
+            
+             
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
