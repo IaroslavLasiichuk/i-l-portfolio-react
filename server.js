@@ -3,6 +3,7 @@ import path from 'path';
 import express from 'express';
 import session from 'express-session';
 import cors from 'cors';
+import Person from './server/models/Person.js';
 // import routes from './server/controllers';
 
 // Const sequelize store.
@@ -47,8 +48,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.get("/api", (req, res) => {
+app.get('/api', (req, res) => {
   res.json({ message: "Hello from server!" });
+});
+
+app.get('/person', async (req, res) => {
+  try {
+    const dbPersonData = await Person.findAll({
+      
+    });
+    const person = dbPersonData.map((person) => person.get({ plain: true }));
+    res.json({
+      person,
+    });
+  } catch (err) {
+ res.status(500).json(err);
+  }
 });
 
 // Turn on connection to db and server
