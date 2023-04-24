@@ -16,9 +16,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app = express();
 app.use(cors());
 
-app.use(cors({
-  origin:`http://localhost:${PORT}`
-}));
+
 const PORT = process.env.PORT || 3000;
 
 // Import sequelize connection
