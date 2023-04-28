@@ -1,4 +1,3 @@
 # Node modules .env and ds_store
 node_modules
-.env
 .DS_Store
