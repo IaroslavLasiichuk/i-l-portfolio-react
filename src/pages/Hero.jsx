@@ -8,15 +8,6 @@ const { navigation } = data;
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [person, setPerson] = React.useState(null);
- 
-  React.useEffect(() => {
-    fetch("http://localhost:3000/person")
-      .then((res) => res.json())
-      .then((data) => {
-        setPerson(data.person);
-      });
-  }, []);
   return (
     <div className="bg-white">
       <header className="absolute inset-x-0 top-0 z-50">
@@ -125,25 +116,25 @@ export default function Hero() {
           </div>
           <div className="text-center">
           <div>
-        {person ? (
+      
                 <>
                   <h1 className="text-4xl py-10 font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Hi, My name is {person[0].first_name} {person[0].last_name} I'm Frontend Developer
+            Hi, My name is Iaroslav Lasiichuk I'm Frontend Developer
             </h1>
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-             More about me.{' '}
+             Download resume{' '}
               <a href="#" className="font-semibold text-indigo-600">
                 <span className="absolute inset-0" aria-hidden="true" />
-                Read more <span aria-hidden="true">&rarr;</span>
+                Click here <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-            {person[0].text}
+           
               </p>
           </>
-        ) : (
+       
           <p></p>
-        )}
+    
       </div>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
